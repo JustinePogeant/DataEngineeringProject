@@ -1,4 +1,8 @@
 .venv
 venv
+vr
+vr/
 
+# Python cache
 __pycache__/
+*.pyc
