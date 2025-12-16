@@ -1,0 +1,22 @@
+# Web Framework
+streamlit==1.29.0
+
+# Database drivers
+pymongo==4.6.1
+redis==5.0.1
+psycopg2-binary==2.9.9
+
+# Data processing and visualization
+pandas==2.1.4
+numpy==1.26.3
+plotly==5.18.0
+matplotlib==3.8.2
+seaborn==0.13.1
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Additional packages
+Pillow==10.2.0
+openpyxl==3.1.2
