@@ -16,45 +16,41 @@ class CapitaleItem(scrapy.Item):
     quand_partir = scrapy.Field()
     decalage_horaire = scrapy.Field()
     duree_vol = scrapy.Field()
-    temperatures = scrapy.Field()
+    temperatures = scrapy.Field()  # Dict mois -> températures
     
     # Informations pratiques
-    infos_pratiques = scrapy.Field()  # Dict avec monnaie, langue, etc.
+    infos_pratiques = scrapy.Field()  # Dict avec infos (monnaie, langue, visa, électricité...)
     
     # Attractions
-    que_voir = scrapy.Field()
+    que_voir = scrapy.Field()  # Liste des attractions
     
     # Carte
-    carte = scrapy.Field()
+    carte = scrapy.Field()  # URL de la carte
     
     # Métadonnées
     date_scraping = scrapy.Field()
     source = scrapy.Field()
 
 
+# Les autres items peuvent rester pour d'autres types de scraping
 class DestinationItem(scrapy.Item):
     """Item représentant une destination du Guide du Routard"""
     
-    # Informations principales
     nom = scrapy.Field()
     continent = scrapy.Field()
     url = scrapy.Field()
     description = scrapy.Field()
     
-    # Informations pratiques
     conseils_pratiques = scrapy.Field()
     budget_moyen = scrapy.Field()
     climat = scrapy.Field()
     meilleure_periode = scrapy.Field()
     
-    # Informations culturelles
     langues = scrapy.Field()
     monnaie = scrapy.Field()
     
-    # Attractions
     attractions = scrapy.Field()
     
-    # Métadonnées
     date_scraping = scrapy.Field()
     source = scrapy.Field()
 
