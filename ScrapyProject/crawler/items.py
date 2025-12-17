@@ -1,8 +1,7 @@
 import scrapy
 
-
 class CapitaleItem(scrapy.Item):
-    """Item représentant une capitale européenne"""
+    """Item représentant une capitale européenne avec toutes les rubriques du Routard"""
     
     # Informations principales
     capitale = scrapy.Field()
@@ -11,26 +10,24 @@ class CapitaleItem(scrapy.Item):
     description = scrapy.Field()
     a_propos = scrapy.Field()
     
-    # Informations voyage
+    # Informations voyage & climat
     meilleure_saison = scrapy.Field()
     quand_partir = scrapy.Field()
     decalage_horaire = scrapy.Field()
     duree_vol = scrapy.Field()
     temperatures = scrapy.Field()  # Dict mois -> températures
     
-    # Informations pratiques
-    infos_pratiques = scrapy.Field()  # Dict avec infos (monnaie, langue, visa, électricité...)
+    # Informations pratiques et culturelles
+    # Contiendra le dictionnaire extrait dans parse_infos
+    infos_pratiques = scrapy.Field()  
     
-    # Attractions
-    que_voir = scrapy.Field()  # Liste des attractions
+    # Attractions et médias
+    que_voir = scrapy.Field()  # Liste des attractions (Incontournables)
+    carte = scrapy.Field()     # URL de la carte
     
-    # Carte
-    carte = scrapy.Field()  # URL de la carte
-    
-    # Métadonnées
+    # Métadonnées techniques
     date_scraping = scrapy.Field()
     source = scrapy.Field()
-
 
 # Les autres items peuvent rester pour d'autres types de scraping
 class DestinationItem(scrapy.Item):
