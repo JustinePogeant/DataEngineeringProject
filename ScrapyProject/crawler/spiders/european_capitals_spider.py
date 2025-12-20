@@ -19,7 +19,7 @@ class EuropeanCapitalsSpider(scrapy.Spider):
         'https://www.routard.com/fr/guide/europe/suede/stockholm',
         'https://www.routard.com/fr/guide/europe/danemark/copenhague',
         'https://www.routard.com/fr/guide/europe/hongrie/budapest',
-        'https://www.routard.com/fr/guide/europe/grece/athenes',,
+        'https://www.routard.com/fr/guide/europe/grece/athenes',
         'https://www.routard.com/fr/guide/europe/slovenie/ljubljana',
         'https://www.routard.com/fr/guide/europe/estonie/tallinn',
         'https://www.routard.com/fr/guide/europe/lituanie/vilnius',
