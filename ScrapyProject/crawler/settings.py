@@ -101,14 +101,3 @@ REDIRECT_MAX_TIMES = 3
 
 # Encodage par défaut
 FEED_EXPORT_ENCODING = 'utf-8'
-
-# Activer les pipelines
-ITEM_PIPELINES = {
-    'spiders.pipelines.DataValidationPipeline': 100,
-    'spiders.pipelines.DuplicateFilterPipeline': 200,
-    'spiders.pipelines.MongoDBPipeline': 300,
-}
-
-# Configuration MongoDB
-MONGO_URI = 'mongodb://localhost:27017/'
-MONGO_DATABASE = 'guide_voyage'
