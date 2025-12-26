@@ -1,18 +1,28 @@
+version: '3.8'
 services:
+  db:
+    image: mongo:latest
+    container_name: mongodb_guide
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
   backend:
-    build:
-      context: ./Webapp/app/backend
-      dockerfile: Dockerfile
+    build: ./Webapp/app/backend
     ports:
       - "5000:5000"
-    volumes:
-      - ./Webapp/app/backend:/app
+    environment:
+      - MONGO_URI=mongodb://db:27017/
+    depends_on:
+      - db
 
   frontend:
-    build:
-      context: ./Webapp/app/frontend
-      dockerfile: Dockerfile
+    build: ./Webapp/app/frontend
     ports:
       - "8080:80"
     depends_on:
       - backend
+
+volumes:
+  mongo_data:
