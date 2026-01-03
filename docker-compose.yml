@@ -1,28 +1,47 @@
 version: '3.8'
+
 services:
-  db:
+  mongodb_guide:
     image: mongo:latest
     container_name: mongodb_guide
     ports:
       - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
+    networks:
+      - app-network
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.10
+    container_name: elasticsearch_guide
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    networks:
+      - app-network
 
   backend:
     build: ./Webapp/app/backend
+    container_name: backend_guide
     ports:
       - "5000:5000"
-    environment:
-      - MONGO_URI=mongodb://db:27017/
     depends_on:
-      - db
+      - mongodb_guide
+      - elasticsearch
+    networks:
+      - app-network
 
   frontend:
     build: ./Webapp/app/frontend
+    container_name: frontend_guide
     ports:
       - "8080:80"
     depends_on:
       - backend
+    networks:
+      - app-network
 
-volumes:
-  mongo_data:
+networks:
+  app-network:
+    driver: bridge

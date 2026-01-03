@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
+    "leaflet": "^1.9.4"
+  }
+}

@@ -1,9 +1,6 @@
-import re
-import html
-
 def get_city_coordinates(city_name):
-    """Retourne les coordonnées [lat, lon] pour la carte Leaflet"""
     coords = {
+        "Paris": [48.8566, 2.3522], # Indispensable !
         "Dublin": [53.3498, -6.2603],
         "Berlin": [52.5200, 13.4050],
         "Lisbonne": [38.7223, -9.1393],
@@ -18,6 +15,10 @@ def get_city_coordinates(city_name):
         "Ljubljana": [46.0569, 14.5058],
         "Tallinn": [59.4370, 24.7535],
         "Vilnius": [54.6872, 25.2797],
-        "Nicosie": [35.1856, 33.3823]
+        "Nicosie": [35.1856, 33.3823],
+        "Bratislava": [48.1486, 17.1077],
+        "Prague": [50.0755, 14.4378],
+        "Varsovie": [52.2297, 21.0122],
     }
-    return coords.get(city_name, [48.8566, 2.3522]) # Par défaut Paris si non trouvé
+    # On retourne les coordonnées, ou une valeur neutre [0,0] pour repérer les erreurs
+    return coords.get(city_name, [0, 0])

@@ -1,8 +1,14 @@
-.venv
-venv
-vr
-vr/
+# Dépendances Node
+node_modules/
+dist/
+build/
+.env
 
-# Python cache
+# Environnement Python
+venv/
+.venv/
 __pycache__/
 *.pyc
+
+# Docker
+.data/
