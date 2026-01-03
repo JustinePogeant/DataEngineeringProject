@@ -21,6 +21,14 @@ services:
     networks:
       - app-network
 
+  data_import:
+    build: ./ScrapyProject
+    container_name: data_import_worker
+    depends_on:
+      - mongodb_guide
+    networks:
+      - app-network
+
   backend:
     build: ./Webapp/app/backend
     container_name: backend_guide

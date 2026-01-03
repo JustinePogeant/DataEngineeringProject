@@ -16,7 +16,7 @@ import sys
 class MongoDBImporter:
     """Classe pour importer des données JSON dans MongoDB"""
     
-    def __init__(self, mongo_uri='mongodb://localhost:27017/', database='guide_voyage'):
+    def __init__(self, mongo_uri='mongodb://mongodb_guide:27017/', database='guide_voyage'):
         print(f"🔗 Connexion à MongoDB...")
         self.client = MongoClient(mongo_uri)
         self.db = self.client[database]
